@@ -8,7 +8,7 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: gold;
 			font-size: 300%;
 			text-align: center;
 			display: block;
@@ -48,6 +48,7 @@
 
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX) {
+				console.log("The box was just moved");
 				box.css("left", newPositionX);
 			}
 
@@ -56,13 +57,14 @@
 				box.text(newText);
 			}
 
+			moveBoxTo (boardWidth);
 			//////////////////////////////////////////////////////////////////
 			/////////////////// YOUR CODE BELOW HERE /////////////////////////
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
 			
-
+				var location = 0
 			
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
@@ -70,7 +72,8 @@
 			turn it around! 
 			*/
 			function update() {
-				
+				moveBoxTo(location);
+				location = location += 10;
 
 			};
 
@@ -80,7 +83,7 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				
+				console.log("Watch it!");
 
 
 			};
