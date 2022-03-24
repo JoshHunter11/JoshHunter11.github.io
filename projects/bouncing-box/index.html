@@ -18,6 +18,7 @@
 		}
 		.board{
 			height: 100vh;
+			background-color: azure;
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -48,8 +49,8 @@
 
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX, newPositionY) {
-				console.log("The box was just moved");
-				box.css("left", newPositionX);
+				box.css('left', newPositionX);
+     			box.css('top', newPositionY);
 			}
 
 			// changes the text displayed on the Box
@@ -67,10 +68,10 @@
 				var positionX = 0
 				var points = 0
 				var speed = 10
-				var positionY;
-				var speedY;
 				var boardHeight = jQuery(window).height(); 
-			
+				var positionY = 0;
+				var speedY = 5;
+				var boardHeight = jQuery(window).height(); 
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -81,13 +82,20 @@
 				positionX += speed;
 
 				if (positionX >= boardWidth) {
-					speed = -10
+					speed = -speed 
 				}
 
 				else if (positionX < 0){
-					speed = - speed
+					speed = -1 * speed
 				}
 
+				if (positionY >= boardHeight) {
+					speedY = -speedY
+				}
+
+				else if (positionY < 0){
+					speedY = -1 * speedY
+				}
 			};
 
 			/* 
@@ -97,8 +105,10 @@
 			*/
 			function handleBoxClick() {
 				positionX = 0;
+				positionY = 0;
 				points += 1;
 				speed += 3;
+				speedY += 3;
 				changeBoxText(points);
 
 			};
