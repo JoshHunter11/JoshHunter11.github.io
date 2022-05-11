@@ -45,7 +45,7 @@
     
     function getStartPointX(object) {
         switch (object.type) {
-            case TYPE_CIRCULAR:
+            case TYPE_TRIANGULAR:
                 return -(object.radius) + object.xOffset;
             default:
                 return object.xOffset;
@@ -54,7 +54,7 @@
     
     function getStartPointY(object) {
         switch (object.type) {
-            case TYPE_CIRCULAR:
+            case TYPE_TRIANGULAR:
                 return -(object.radius) + object.yOffset;
             default:
                 return object.yOffset;
@@ -63,7 +63,7 @@
     
     function getEndPointX(object) {
         switch (object.type) {
-            case TYPE_CIRCULAR:
+            case TYPE_TRIANGULAR:
                 return object.radius + object.xOffset;
             default:
                 return object.xOffset + object.width;
@@ -72,7 +72,7 @@
     
     function getEndPointY(object) {
         switch (object.type) {
-            case TYPE_CIRCULAR:
+            case TYPE_TRIANGULAR:
                 return object.radius + object.yOffset;
             default:
                 return object.yOffset + object.height;
