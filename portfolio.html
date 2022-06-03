@@ -6,10 +6,16 @@
 
     <style type="text/css">
         body {
-            background: rgb(82, 76, 76);
+            background-image: url("/img/gray-background.png");
             color: rgb(158, 26, 26);
             padding: 10px;
             font-family: 'Times New Roman', Times, serif;
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         header {
@@ -37,6 +43,8 @@
             align-items: center;
             color: rgb(0, 0, 0);
             flex: 1;
+            margin: 0;
+            text-decoration: underline;
         }
 
         #nav-ul {
@@ -48,7 +56,7 @@
             padding: 0 10px;
         }
 
-        .nav-a {
+        a {
             text-decoration: none;
             color: #fff;
         }
@@ -71,24 +79,28 @@
             color: black;
         }
 
-        #portfolio, #advanced-portfolio {
+        #portfolio,
+        #advanced-portfolio {
             list-style-type: none;
             padding-left: 0;
             padding: 8px;
         }
 
-        #portfolio li, #advanced-portfolio li {
+        #portfolio li,
+        #advanced-portfolio li {
             background: #fff;
             padding: 10px;
             border-radius: 10px;
             margin-bottom: 10px;
         }
 
-        #portfolio li:hover, #advanced-portfolio li:hover {
+        #portfolio li:hover,
+        #advanced-portfolio li:hover {
             background: #eee;
         }
 
-        #portfolio a, #advanced-portfolio a {
+        #portfolio a,
+        #advanced-portfolio a {
             text-decoration: none;
             color: #454545;
         }
@@ -122,7 +134,8 @@
                 </ul>
                 <h1>Advanced Portfolio</h1>
                 <ul id="advanced-portfolio">
-                    <li><a href="asd-projects/debugging-exercise/">Debugging Exercise : Practice on debugging code</a></li>
+                    <li><a href="asd-projects/debugging-exercise/">Debugging Exercise : Practice on debugging code</a>
+                    </li>
                     <li><a href="asd-projects/walker/">Walker : Building a 'walking' code</a></li>
                     <li><a href="asd-projects/image-filtering/">Image Filtering: Filtering Images</a></li>
                     <li><a href="asd-projects/sorting-exercise/">Sorting Exercise: Exercise on sorting images</a></li>

@@ -1,120 +1,142 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <title>Josh's Super Website</title>
 
-        <style>
+<head>
+    <title>Josh's Super Website</title>
 
-            body {
-                background: rgb(82, 76, 76);
-                color: rgb(158, 26, 26);
-                padding: 10px;
-                font-family: 'Times New Roman', Times, serif;
-            }
-            #all-contents {
-              max-width: 800px;
-                margin: auto;
-            }
-         
-            /* navigation menu */
-            nav {
-                background: rgb(209, 72, 13);
-                margin: 0 auto;
-                margin-bottom: 20px;
-                display: flex;
-                padding: 10px;
-                border-radius: 10px;
-            }
-            h1 {
-                display: flex;
-                align-items: center;
-                color: black;
-                flex: 1;
-                margin: 0;
-            }
-            #nav-ul {
-                list-style-image: none;
-            }
-            .nav-li {
-                display: inline-block;
-                padding: 0 10px;
-            }
-            a {
-                text-decoration: none;
-                color: #fff;
-            }
-         
-            /* main container area beneath menu */
-            main {
-                background: rgb(245, 238, 219);
-                display: flex;
-                padding: 10px;
-                border-radius: 10px;
-            }
-            .sidebar {
-                margin-right: 25px;
-                padding: 10px;
-            }
-            .sidebar-img {
-                width: 200px;
-                border: 4px silver ridge;
-            }
-            .content {
-                flex: 1;
-                padding: 15px;
-            }
-            #interests {
-                padding: 8px;
-            }
-            h2, h3 {
-                margin: 0px;
-            }
-         </style>
-    </head>
-        
-    <body>
-        <!-- content div -->
-        <div id="all-contents">
-             
-            <nav>
-                <h1>Josh's Super Website</h1>
-                <ul id="nav-ul">
-                    <li class="nav-li">
-                        <a href="index.html"> Home </a>
-                    </li>
+    <style>
+        body {
+            background-image: url("/img/gray-background.png");
+            color: rgb(158, 26, 26);
+            padding: 10px;
+            font-family: 'Times New Roman', Times, serif;
+            height: 100%;
 
-                    <li class="nav-li">
-                        <a href="portfolio.html"> Portfolio </a> 
-                    </li>
-                </ul>
-            </nav>
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
-            <main>
-                <!-- sidebar/image div -->
-                <div class="sidebar">
-                    
-                    <img class="sidebar-img" src="https://pbs.twimg.com/profile_images/1369342272404402179/Hu5THK4J_400x400.jpg">
+        #all-contents {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* navigation menu */
+        nav {
+            background: rgb(209, 72, 13);
+            margin: 0 auto;
+            margin-bottom: 20px;
+            display: flex;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            display: flex;
+            align-items: center;
+            color: black;
+            flex: 1;
+            margin: 0;
+            text-decoration: underline;
+        }
+
+        #nav-ul {
+            list-style-image: none;
+        }
+
+        .nav-li {
+            display: inline-block;
+            padding: 0 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* main container area beneath menu */
+        main {
+            background: rgb(245, 238, 219);
+            display: flex;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .sidebar {
+            margin-right: 25px;
+            padding: 10px;
+        }
+
+        .sidebar-img {
+            width: 200px;
+            border: 4px silver ridge;
+        }
+
+        .content {
+            flex: 1;
+            padding: 15px;
+        }
+
+        #interests {
+            padding: 8px;
+        }
+
+        h2 {
+            text-decoration: underline;
+        }
+        h3 {
+            
+        }
+    </style>
+</head>
+
+<body>
+    <!-- content div -->
+    <div id="all-contents">
+
+        <nav>
+            <h1>Josh's Super Website</h1>
+            <ul id="nav-ul">
+                <li class="nav-li">
+                    <a href="index.html"> Home </a>
+                </li>
+
+                <li class="nav-li">
+                    <a href="portfolio.html"> Portfolio </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- sidebar/image div -->
+            <div class="sidebar">
+
+                <img class="sidebar-img"
+                    src="https://pbs.twimg.com/profile_images/1369342272404402179/Hu5THK4J_400x400.jpg">
 
 
-                </div>
+            </div>
 
-                <!-- content section -->
-                <div class="content">
-                    
-                    <h2>Joshua Hunter</h2>
-                    <p>Student at Lusher Charter High School</p>
+            <!-- content section -->
+            <div class="content">
 
-                    <!-- Interests section -->
-                    <div id="interests">
-                        <h3>Interests</h3>
-                        <ul>
+                <h2>Joshua Hunter</h2>
+                <p>Student at Lusher Charter High School</p>
+
+                <!-- Interests section -->
+                <div id="interests">
+                    <h3>Interests</h3>
+                    <ul>
                         <li>Friends</li>
                         <li>Video games</li>
                         <li>Ceramics</li>
-                    </div>
                 </div>
+            </div>
 
-            </main>
-        </div>
-    </body>
+        </main>
+    </div>
+</body>
+
 </html>
