@@ -11,13 +11,17 @@ function runProgram() {
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
 
+  //Position and speed variables for the walker
   var speedX = 0;
   var speedY = 0;
   var positionX = 0;
   var positionY = 0;
 
+  //Variables to define the width and height of the board
   var boardWidth = parseInt($('#board').css('width'));
   var boardHeight = parseInt($('#board').css('height')); 
+
+  //Variables to define the width and height of the walker
   var walkerSizeX = parseInt($('#walker').css('width'));
   var walkerSizeY = parseInt($('#walker').css('height'));
 
@@ -45,6 +49,7 @@ function runProgram() {
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
+
   function newFrame() {
     repositionGameItem();
     boardLimitX();
@@ -95,6 +100,7 @@ function runProgram() {
     $('#walker').css('top', positionY);
   }
 
+  //This function stops the walker when it meets the left or right side of the board, no matter the size of the board or walker
   function boardLimitX(){
     if(positionX >= (boardWidth - walkerSizeX)){
       positionX = (boardWidth - walkerSizeX);
@@ -106,6 +112,7 @@ function runProgram() {
     }
   }
 
+  //This function stops the walker when it meets the top or bottom sides of the board, once again no matter the size of the board or walker
   function boardLimitY(){
     if(positionY >= (boardHeight - walkerSizeY)){
       positionY = (boardHeight - walkerSizeY);
