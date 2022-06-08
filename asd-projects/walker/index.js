@@ -16,6 +16,13 @@ function runProgram() {
   var positionX = 0;
   var positionY = 0;
 
+  var boardWidth = parseInt($('#board').css('width'));
+  var boardHeight = parseInt($('#board').css('height')); 
+  var walkerSizeX = parseInt($('#walker').css('width'));
+  var walkerSizeY = parseInt($('#walker').css('height'));
+
+  //console.log(typeof boardWidth);
+
   // Game Item Objects
 
   var KEY = {
@@ -40,6 +47,8 @@ function runProgram() {
   */
   function newFrame() {
     repositionGameItem();
+    boardLimitX();
+    boardLimitY();
     redrawGameItem();
   }
 
@@ -54,19 +63,19 @@ function runProgram() {
   }
 
   function handleKeyDown(event) {
-    if (event.which === 40) {
+    if (event.which === KEY.DOWN) {
       console.log("down arrow pressed");
       speedY = 5
     }
-    else if (event.which === 38) {
+    else if (event.which === KEY.UP) {
       console.log("up arrow pressed");
       speedY = -5
     }
-    else if (event.which === 37) {
+    else if (event.which === KEY.LEFT) {
       console.log("left arrow pressed");
       speedX = -5
     }
-    else if (event.which === 39) {
+    else if (event.which === KEY.RIGHT) {
       console.log("right arrow pressed");
       speedX = 5
     }
@@ -84,6 +93,28 @@ function runProgram() {
   function redrawGameItem(){
     $('#walker').css('left', positionX);
     $('#walker').css('top', positionY);
+  }
+
+  function boardLimitX(){
+    if(positionX >= (boardWidth - walkerSizeX)){
+      positionX = (boardWidth - walkerSizeX);
+      speedX = 0;
+    }
+    else if(positionX <= 0){
+      positionX = 0;
+      speedX = 0;
+    }
+  }
+
+  function boardLimitY(){
+    if(positionY >= (boardHeight - walkerSizeY)){
+      positionY = (boardHeight - walkerSizeY);
+      speedY = 0;
+    }
+    else if(positionY <= 0){
+      positionY = 0;
+      speedY =0; 
+    }
   }
 
   function endGame() {
