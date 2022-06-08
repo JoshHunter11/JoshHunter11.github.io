@@ -28,6 +28,7 @@ function runProgram() {
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('keyup', handleKeyUp);
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -45,18 +46,29 @@ function runProgram() {
   /* 
   Called in response to events.
   */
+
+  function handleKeyUp(event){
+    console.log("no input");
+    speedY = 0;
+    speedX = 0;
+  }
+
   function handleKeyDown(event) {
-    if (event.which === 38) {
-      console.log("up arrow pressed");
-    }
-    else if (event.which === 40) {
+    if (event.which === 40) {
       console.log("down arrow pressed");
+      speedY = 5
+    }
+    else if (event.which === 38) {
+      console.log("up arrow pressed");
+      speedY = -5
     }
     else if (event.which === 37) {
       console.log("left arrow pressed");
+      speedX = -5
     }
     else if (event.which === 39) {
       console.log("right arrow pressed");
+      speedX = 5
     }
   }
 
@@ -65,12 +77,13 @@ function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
 
   function repositionGameItem(){
-    walker.css('left', newPositionX);
-    walker.css('top', newPositionY);
+    positionX += speedX;
+    positionY += speedY;
   }
 
   function redrawGameItem(){
-
+    $('#walker').css('left', positionX);
+    $('#walker').css('top', positionY);
   }
 
   function endGame() {
