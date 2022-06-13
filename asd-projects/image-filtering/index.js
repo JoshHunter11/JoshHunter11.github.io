@@ -5,20 +5,17 @@ $(document).ready(function () {
 
     // Multiple TODOs: Call your apply function(s) here
 
-
-
-
-
+    applyFilter(reddify);
+    applyFilterNoBackground(decreaseBlue);
+    applyFilterNoBackground(increaseGreenByBlue);
+    applyFilter(invertFilter);
+    
     render($display, image);
 });
 
 /////////////////////////////////////////////////////////
 // "apply" and "filter" functions should go below here //
 /////////////////////////////////////////////////////////
-
-applyFilterNoBackground(reddify);
-applyFilterNoBackground(decreaseBlue);
-applyFilter(increaseGreenByBlue);
 
 // TODO 1, 2 & 4: Create the applyFilter function here
 
@@ -101,7 +98,7 @@ function keepInBounds(num) {
 // TODO 3: Create reddify function
 
 function reddify(arr) {
-    arr[RED] = 200;
+    arr[RED] = 255;
 }
 
 // TODO 6: Create more filter functions
@@ -112,6 +109,12 @@ function decreaseBlue(arrPt2) {
 
 function increaseGreenByBlue(arrPt3) {
     arrPt3[GREEN] = keepInBounds(arrPt3[BLUE] + arrPt3[GREEN]);
+}
+
+function invertFilter(arrPt4) {
+    arrPt4[GREEN] = keepInBounds(255 - arrPt4[GREEN]);
+    arrPt4[RED] = keepInBounds(255 - arrPt4[RED]);
+    arrPt4[BLUE] = keepInBounds(255 - arrPt4[BLUE]);
 }
 
 // CHALLENGE code goes below here
