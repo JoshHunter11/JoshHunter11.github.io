@@ -62,26 +62,31 @@ function runProgram() {
   */
 
   function handleKeyUp(event){
-    console.log("no input");
-    speedY = 0;
-    speedX = 0;
+    if (event.which === KEY.DOWN) {
+      speedY = 0
+    }
+    else if (event.which === KEY.UP) {
+      speedY = 0
+    }
+    else if (event.which === KEY.LEFT) {
+      speedX = 0
+    }
+    else if (event.which === KEY.RIGHT) {
+      speedX = 0
+    }
   }
 
   function handleKeyDown(event) {
     if (event.which === KEY.DOWN) {
-      console.log("down arrow pressed");
       speedY = 5
     }
     else if (event.which === KEY.UP) {
-      console.log("up arrow pressed");
       speedY = -5
     }
     else if (event.which === KEY.LEFT) {
-      console.log("left arrow pressed");
       speedX = -5
     }
     else if (event.which === KEY.RIGHT) {
-      console.log("right arrow pressed");
       speedX = 5
     }
   }
