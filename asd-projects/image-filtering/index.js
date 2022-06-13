@@ -16,9 +16,9 @@ $(document).ready(function () {
 // "apply" and "filter" functions should go below here //
 /////////////////////////////////////////////////////////
 
-applyFilter(reddify);
+applyFilterNoBackground(reddify);
 applyFilterNoBackground(decreaseBlue);
-applyFilterNoBackground(increaseGreenByBlue);
+applyFilter(increaseGreenByBlue);
 
 // TODO 1, 2 & 4: Create the applyFilter function here
 
