@@ -19,7 +19,7 @@ async function bubbleSort(array) {
 
     for (var i = 0; i < array.length - 1; i++) {
 
-        for (var j = array.length - 1; j > i + 1; j--) {
+        for (var j = array.length - 1; j > i; j--) {
 
             if (array[j].value < array[j - 1].value) {
                 swap(array, j, j - 1);
