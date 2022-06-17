@@ -19,3 +19,42 @@ body {
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
 }
+
+#leftPaddle {
+    /* appearance */
+    background-color: red;
+    width: 20px;
+    height: 80px;
+    border-radius: 10px;
+    
+    /* positioning */
+    position: absolute;
+    top: 175px;
+    left: 40px;
+}
+
+#rightPaddle {
+    /* appearance */
+    background-color: blue;
+    width: 20px;
+    height: 80px;
+    border-radius: 10px;
+    
+    /* positioning */
+    position: absolute;
+    top: 175px;
+    left: 380px;
+}
+
+#ball {
+  /* appearance */
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  
+  /* positioning */
+  position: absolute;
+  top: 210px;
+  left: 210px;
+}
