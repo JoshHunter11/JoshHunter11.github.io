@@ -1,0 +1,18 @@
+User Story/Gameplay:
+
+The gameplay - A ball will go to one side of the screen, and one player will hit it to the other side, where the other player will hit it back, like table tennis.
+               If one of the players misses the ball when it goes on their side of the screen, the other player will score a point.
+
+The conditions - When the game begins, both of the players' points will be set to 0, and the ball will spawn in the middle of the screen and randomly choose which side to go to.
+
+The end - The game will end when one of the players reaches 11 points.
+
+The 'ifs' - Some of the if statements that will likely be included are the if statements that control the ball's movement, and the players' paddle movements when the right keys are
+            clicked. Also, there will be an if statement for when the game ends.
+
+Visual Game Components:
+
+The components - The featured components include the board, paddles, and ball, with the paddles and ball being animated while the board stays static.
+
+The values - Some of the values that will need to be used are similar to the ones in bouncing box like speedX, speedY, positionX, and positionY. There will also need to be values
+             to display the amount of points that each player has.

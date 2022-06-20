@@ -4,21 +4,30 @@ body {
 }
 
 #board {
-  width: 440px;
-  height: 440px;
+  width: 800px;
+  height: 800px;
   border: 1px solid white;
   background-color: black;
   position: relative;
+  margin:auto;
 }
 
-#gameItem {
+#line {
+  width: 1px;
+  height: 800px;
+  border: 1px dashed white;
+  position: relative;
+  margin:auto;
+}
+
+/* #gameItem {
   background-color: teal;
   width: 50px;
   height: 50px;
   position: absolute;
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
-}
+ 
 
 #leftPaddle {
     /* appearance */
@@ -43,7 +52,7 @@ body {
     /* positioning */
     position: absolute;
     top: 175px;
-    left: 380px;
+    left: 760px;
 }
 
 #ball {
@@ -55,6 +64,6 @@ body {
   
   /* positioning */
   position: absolute;
-  top: 210px;
-  left: 210px;
+  top: 385px;
+  left: 385px;
 }
