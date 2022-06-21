@@ -23,10 +23,16 @@ function runProgram() {
   var leftPaddle = Paddle('#leftPaddle', 40);
   console.log(leftPaddle);
 
+  var rightScore = scoreBoard('#rightScore', 800);
+  console.log(rightScore);
+
+  var leftScore = scoreBoard('#leftScore', 0);
+  console.log(leftScore);
+
   var ball = {};
   ball.id = "#ball"
   ball.x = 385;
-  ball.y = 385; 
+  ball.y = 385;
   ball.width = 20;
   ball.height = 20;
   ball.speedX = 0;
@@ -39,6 +45,16 @@ function runProgram() {
     obj.y = 345;
     obj.speedY = 0;
     obj.speedX = 0;
+    obj.width = $(id).width();
+    obj.height = $(id).height();
+    return obj;
+  }
+
+  function scoreBoard(id, x) {
+    var obj = {};
+    obj.id = id;
+    obj.x = x;
+    obj.y = 0;
     obj.width = $(id).width();
     obj.height = $(id).height();
     return obj;
@@ -77,6 +93,9 @@ function runProgram() {
     wallCollision(ball);
     wallCollision(rightPaddle);
     wallCollision(leftPaddle);
+
+    doCollide(ball, leftPaddle);
+    doCollide(ball, rightPaddle);
   }
 
   /* 
@@ -86,22 +105,22 @@ function runProgram() {
 
     if (event.which === KEY.UP1) {
       console.log("w key pressed");
-      leftPaddle.speedY = -5;
+      leftPaddle.speedY = -7;
     }
 
     else if (event.which === KEY.UP2) {
       console.log("up arrow key pressed");
-      rightPaddle.speedY = -5;
+      rightPaddle.speedY = -7;
     }
 
     else if (event.which === KEY.DOWN1) {
       console.log("s key pressed");
-      leftPaddle.speedY = 5;
+      leftPaddle.speedY = 7;
     }
 
     else if (event.which === KEY.DOWN2) {
       console.log("down arrow key pressed");
-      rightPaddle.speedY = 5;
+      rightPaddle.speedY = 7;
     }
 
   }
@@ -143,14 +162,14 @@ function runProgram() {
     $(document).off();
   }
 
-  function startBall(){
+  function startBall() {
     ball.x = 385;
     ball.y = 385;
-    ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
-    ball.speedY = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+    ball.speedX = (Math.random() * 2 + 1) * (Math.random() > 0.5 ? -1 : 1);
+    ball.speedY = (Math.random() * 2 + 1) * (Math.random() > 0.5 ? -1 : 1);
   }
 
-  function moveObject(obj){
+  function moveObject(obj) {
     obj.x += obj.speedX;
     obj.y += obj.speedY;
 
@@ -159,33 +178,47 @@ function runProgram() {
 
   }
 
-  function wallCollision(obj){
+  function wallCollision(obj) {
 
-    if(obj.x >= BOARD_WIDTH - obj.width){
+    moveObject(ball);
+
+    if (obj.x >= BOARD_WIDTH - obj.width) {
       obj.speedX = 0;
       obj.speedY = 0;
       obj.x = BOARD_WIDTH - obj.width;
     }
-    
-    else if(obj.x <= 0){
+
+    else if (obj.x <= 0) {
       obj.speedX = 0;
       obj.speedY = 0;
+      obj.x = 0 ;
     }
-    else if(obj.y < 0){
-      obj.speedY = 0;
+
+    else if (obj.y < 0) {
+      obj.speedY = -1 * obj.speedY;
       obj.y = 0;
     }
-    else if(obj.y >= BOARD_HEIGHT - obj.height){
-      obj.speedY = 0;
+
+    else if (obj.y >= BOARD_HEIGHT - obj.height) {
+      obj.speedY = -obj.speedY;
       obj.y = BOARD_HEIGHT - obj.height;
     }
 
   }
 
-  function scoreUpdate(ball){
-    if(ball.x >= BOARD_WIDTH - ball.width){
+  function scoreUpdate(ball) {
+    if (ball.x >= BOARD_WIDTH - ball.width) {
       $("#scoreId").text(updatedScore);
       startBall();
+    }
+  }
+
+  function doCollide(obj1, obj2) {
+    if (obj1.x < obj2.x && obj1.x > obj2.x && obj1.y > obj2.y && obj1.y < obj2.y) {
+      obj1.speedX = -obj1.speedX;
+      return true;
+    } else {
+      return false;
     }
   }
 
