@@ -19,7 +19,6 @@ function runProgram() {
   var rightPaddle = Paddle('#rightPaddle', 740);
   console.log(rightPaddle);
 
-
   var leftPaddle = Paddle('#leftPaddle', 40);
   console.log(leftPaddle);
 
@@ -29,9 +28,13 @@ function runProgram() {
   var leftScore = scoreBoard('#leftScore', 0);
   console.log(leftScore);
 
+  var updatedScoreL = 0;
+
+  var updatedScoreR = 0;
+
   var ball = {};
   ball.id = "#ball"
-  ball.x = 385;
+  ball.x = 390;
   ball.y = 385;
   ball.width = 20;
   ball.height = 20;
@@ -54,7 +57,7 @@ function runProgram() {
     var obj = {};
     obj.id = id;
     obj.x = x;
-    obj.y = 0;
+    obj.y = 20;
     obj.width = $(id).width();
     obj.height = $(id).height();
     return obj;
@@ -94,8 +97,10 @@ function runProgram() {
     wallCollision(rightPaddle);
     wallCollision(leftPaddle);
 
-    doCollide(ball, leftPaddle);
-    doCollide(ball, rightPaddle);
+    doCollide(leftPaddle, ball);
+    doCollide(rightPaddle, ball);
+    
+    end();
   }
 
   /* 
@@ -104,22 +109,18 @@ function runProgram() {
   function handleKeyDown(event) {
 
     if (event.which === KEY.UP1) {
-      console.log("w key pressed");
       leftPaddle.speedY = -7;
     }
 
     else if (event.which === KEY.UP2) {
-      console.log("up arrow key pressed");
       rightPaddle.speedY = -7;
     }
 
     else if (event.which === KEY.DOWN1) {
-      console.log("s key pressed");
       leftPaddle.speedY = 7;
     }
 
     else if (event.which === KEY.DOWN2) {
-      console.log("down arrow key pressed");
       rightPaddle.speedY = 7;
     }
 
@@ -128,22 +129,18 @@ function runProgram() {
   function handleKeyUp(event) {
 
     if (event.which === KEY.UP1) {
-      console.log("w key released");
       leftPaddle.speedY = 0;
     }
 
     else if (event.which === KEY.UP2) {
-      console.log("up arrow key released");
       rightPaddle.speedY = 0;
     }
 
     else if (event.which === KEY.DOWN1) {
-      console.log("s key released");
       leftPaddle.speedY = 0;
     }
 
     else if (event.which === KEY.DOWN2) {
-      console.log("down arrow key released");
       rightPaddle.speedY = 0;
     }
 
@@ -165,8 +162,8 @@ function runProgram() {
   function startBall() {
     ball.x = 385;
     ball.y = 385;
-    ball.speedX = (Math.random() * 2 + 1) * (Math.random() > 0.5 ? -1 : 1);
-    ball.speedY = (Math.random() * 2 + 1) * (Math.random() > 0.5 ? -1 : 1);
+    ball.speedX = (Math.random() * 3 + 1.5) * (Math.random() > 0.5 ? -1 : 1);
+    ball.speedY = (Math.random() * 3 + 1.5) * (Math.random() > 0.5 ? -1 : 1);
   }
 
   function moveObject(obj) {
@@ -180,18 +177,22 @@ function runProgram() {
 
   function wallCollision(obj) {
 
-    moveObject(ball);
+    //moveObject(ball);
 
     if (obj.x >= BOARD_WIDTH - obj.width) {
       obj.speedX = 0;
       obj.speedY = 0;
-      obj.x = BOARD_WIDTH - obj.width;
+      updatedScoreR++;
+      $("#leftScore").text(updatedScoreR);
+      startBall();
     }
 
     else if (obj.x <= 0) {
       obj.speedX = 0;
       obj.speedY = 0;
-      obj.x = 0 ;
+      updatedScoreL++;
+      $("#rightScore").text(updatedScoreL);
+      startBall();
     }
 
     else if (obj.y < 0) {
@@ -206,19 +207,26 @@ function runProgram() {
 
   }
 
-  function scoreUpdate(ball) {
-    if (ball.x >= BOARD_WIDTH - ball.width) {
-      $("#scoreId").text(updatedScore);
-      startBall();
-    }
-  }
-
   function doCollide(obj1, obj2) {
-    if (obj1.x < obj2.x && obj1.x > obj2.x && obj1.y > obj2.y && obj1.y < obj2.y) {
-      obj1.speedX = -obj1.speedX;
+    if (obj1.x + obj1.width >= obj2.x && obj1.x <= obj2.x + obj2.width && obj1.y + obj1.height >= obj2.y && obj1.y <= obj2.y + obj2.height) {
+      obj2.speedX = -obj2.speedX;
+      //  ball.speedX += 0.5;
+      //  ball.speedY += 0.5;
       return true;
     } else {
       return false;
+    }
+  }
+
+  function end(){
+    console.log($('#winnerText').css('color'))
+    if($("#rightScore").text() === '5'){
+      $("#winnerText").text("Right player wins!");
+      endGame();
+    }
+    else if($("#leftScore").text() === '5'){
+      $("#winnerText").text("Left player wins!");
+      endGame();
     }
   }
 
