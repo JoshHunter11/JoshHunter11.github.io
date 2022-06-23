@@ -8,8 +8,8 @@ $(document).ready(function(){
 var doubleMaxSpeed = 5;
 var maxCircles = 20;
 var $board = $('#board');
-var boardWidth = $($board).width();
-var boardHeight = $($board).height();
+var boardWidth = parseInt($($board).width());
+var boardHeight = parseInt($($board).height());
 var circles = [];
 var circleRadius = 10;
 
@@ -90,6 +90,7 @@ function update(){
     // to make seeing issues in the debugger slightly easier (in practice, you should use
     // circles.length, but do NOT change it here)
     for (var i = 0; i < maxCircles; i++){
+
         var circle = circles[i];
 
         // move the circle
@@ -115,6 +116,9 @@ function moveCircle(circle){
 
 // this bounces circles if they hit a wall
 function bounceCircle(circle){
+    
+    var circleWidth = parseInt($(circle.id).css('width'));
+    var circleHeight = parseInt($(circle.id).css('width'));
 
     // this bounces off the left wall
     if (circle.x < 0){
@@ -122,7 +126,7 @@ function bounceCircle(circle){
         circle.speedX *= -1;
     }
     // this bounces off the right wall
-    else if (circle.x > boardWidth){
+    else if (circle.x >= boardWidth - circleWidth){
         circle.x -= circle.speedX;
         circle.speedX *= -1;
     }
@@ -132,7 +136,7 @@ function bounceCircle(circle){
         circle.speedY *= -1;
     }
     // this bounces off the bottom wall
-    else if (circle.y > boardHeight){
+    else if (circle.y >= boardHeight - circleHeight){
         circle.y -= circle.speedY;
         circle.speedY *= -1;
     }
