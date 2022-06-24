@@ -99,7 +99,7 @@ function runProgram() {
 
     doCollide(leftPaddle, ball);
     doCollide(rightPaddle, ball);
-    
+
     end();
   }
 
@@ -218,13 +218,13 @@ function runProgram() {
     }
   }
 
-  function end(){
+  function end() {
     console.log($('#winnerText').css('color'))
-    if($("#rightScore").text() === '3'){
+    if ($("#rightScore").text() === '11') {
       $("#winnerText").text("Blue player wins!");
       endGame();
     }
-    else if($("#leftScore").text() === '3'){
+    else if ($("#leftScore").text() === '11') {
       $("#winnerText").text("Red player wins!");
       endGame();
     }
