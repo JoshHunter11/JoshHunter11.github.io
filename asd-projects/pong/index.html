@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pong</title>
-    <link rel="icon" type="image/x-icon" href="/img/fav-icon.png">
-    <!-- Load CSS files -->
-    <link rel="stylesheet" type="text/css" href="index.css">
-    
-    <!-- Load JavaScript files -->
-    <script src="jquery.min.js"></script>
-    <script src="index.js"></script>
-  </head>
-  
-  <body>
-    <div id='board'>
-      <div id='gameItem'></div>
-      <div id="leftPaddle"> </div>
-      <div id="rightPaddle"> </div>
-      <div id="ball"> </div>
-      <div id="rightScore"> </div>
-      <div id="leftScore"> </div>
-      <div id="winnerText"> </div>
-      <div id="line"> </div>
-      <script>
-      function delayBall(){
-        setTimeout(startBall, 4000)}</script> 
-      </script>
-    </div>
-  </body>
+
+<head>
+  <title>Pong</title>
+  <link rel="icon" type="image/x-icon" href="/img/fav-icon.png">
+  <!-- Load CSS files -->
+  <link rel="stylesheet" type="text/css" href="index.css">
+
+  <!-- Load JavaScript files -->
+  <script src="jquery.min.js"></script>
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <div id='board'>
+    <div id='gameItem'></div>
+    <div id="leftPaddle"> </div>
+    <div id="rightPaddle"> </div>
+    <div id="ball"> </div>
+    <div id="rightScore"> </div>
+    <div id="leftScore"> </div>
+    <div id="winnerText"> </div>
+    <div id="line"> </div>
+    <div id="chooseMode"> </div> 
+
+    <button id="resetButton">Reset</button>
+    <button id="onePlayer">One Player</button>
+    <button id="twoPlayer">Two Player</button>
+    <!-- <button id="airHockey">Air Hockey (2 Player)</button> -->
+    <script>
+      function delayBall() {
+        setTimeout(startBall, 4000)
+      }</script>
+    </script>
+  </div>
+</body>
+
 </html>
-}

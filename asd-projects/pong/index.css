@@ -65,7 +65,7 @@ body {
 
   /* positioning */
   position: absolute;
-  top: 175px;
+  top: 345px;
   left: 40px;
 }
 
@@ -79,8 +79,8 @@ body {
 
   /* positioning */
   position: absolute;
-  top: 175px;
-  left: 760px;
+  top: 345px;
+  left: 740px;
 }
 
 #ball {
@@ -94,4 +94,52 @@ body {
   position: absolute;
   top: 385px;
   left: 390px;
+}
+
+#chooseMode {
+  background-color: transparent;
+  width: 200px;
+  height: 80px;
+  color: goldenrod;
+  font-size: 300%;
+  text-align: center;
+  position:absolute;
+  left: 300px;
+  top: 90px;
+}
+
+#onePlayer {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 2px solid white;
+}
+
+#twoPlayer {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 2px solid white;
+}
+
+#resetButton {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 2px solid white;
 }
