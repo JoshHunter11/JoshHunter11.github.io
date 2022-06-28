@@ -123,9 +123,9 @@ function runProgram() {
       moveObject(leftPaddle);
       moveObject(rightPaddle);
 
-      wallCollision(ball);
       wallCollision(rightPaddle);
       wallCollision(leftPaddle);
+      wallCollision(ball);
 
       doCollide(leftPaddle, ball);
       doCollide(rightPaddle, ball);
