@@ -23,7 +23,7 @@
 
 		.board {
 			height: 98vh;
-			background-color: azure;
+			background-color: rgb(255, 255, 255);
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -130,6 +130,14 @@
 				} else if (speedY < 0) {
 					speedY -= 3;
 				}
+
+				var r = Math.floor(Math.random() * 256);
+				var g = Math.floor(Math.random() * 256);
+				var b = Math.floor(Math.random() * 256);
+
+				var boardColor = board.css('background-color', `rgb(${r}, ${g}, ${b})`);
+
+				boardColor = (r, g, b);
 
 				changeBoxText(points);
 

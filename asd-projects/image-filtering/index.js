@@ -3,13 +3,15 @@
 $(document).ready(function () {
     const $display = $('#display');
 
+    $("#randomFilterButton").on('click', randomFilterClick);
+    $("#resetButton").on('click', resetPage);
     // Multiple TODOs: Call your apply function(s) here
 
-    applyFilter(reddify);
-    applyFilterNoBackground(decreaseBlue);
-    applyFilterNoBackground(increaseGreenByBlue);
-    applyFilter(invertFilter);
-    
+    // applyFilter(reddify);
+    // applyFilterNoBackground(decreaseBlue);
+    // applyFilterNoBackground(increaseGreenByBlue);
+    // applyFilter(invertFilter);
+
     render($display, image);
 });
 
@@ -20,7 +22,7 @@ $(document).ready(function () {
 // TODO 1, 2 & 4: Create the applyFilter function here
 
 function applyFilter(filterFunction) {
-
+    console.log(24);
     for (var i = 0; i < image.length; i++) {
 
         var row = image[i];
@@ -118,3 +120,44 @@ function invertFilter(arrPt4) {
 }
 
 // CHALLENGE code goes below here
+
+function randomFilterClick() {
+
+    console.log("clicked");
+
+    var background;
+    var filter;
+
+    var randomNum1 = Math.ceil(Math.random() * 4);
+    var randomNum2 = Math.ceil(Math.random() * 2);
+
+
+    if (randomNum2 === 1) {
+        background = applyFilter;
+    } else if (randomNum2 = 2) {
+        background = applyFilterNoBackground;
+    }
+
+    if (randomNum1 === 1) {
+        filter = reddify;
+    } else if (randomNum1 === 2) {
+        filter = decreaseBlue;
+    } else if (randomNum1 === 3) {
+        filter = increaseGreenByBlue;
+    } else if (randomNum1 === 4) {
+        filter = invertFilter;
+    }
+    
+    console.log({ randomNum1, background, filter });
+
+    background(filter);
+
+    const $display = $('#display');
+
+    render($display, image);
+
+}
+
+function resetPage() {
+    location.reload();
+}
