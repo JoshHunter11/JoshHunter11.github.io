@@ -31,6 +31,15 @@ var _ = {};
 * _.typeOf([1,2,3]) -> "array"
 */
 
+_.typeOf = function (value){
+    if(Array.isArray(value) === true){
+        return "array";
+    }
+    if(value === null){
+        return 'null';
+    }
+    
+}
 
 /** _.first
 * Arguments:
@@ -50,6 +59,15 @@ var _ = {};
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function (arr, num){
+    if(Array.isArray(arr) !== true){
+        return [];
+    }
+
+    if(num !== number){
+        return arr[0];
+    }
+}
 
 /** _.last
 * Arguments:
