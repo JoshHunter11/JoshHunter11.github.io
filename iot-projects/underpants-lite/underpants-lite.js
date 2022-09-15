@@ -31,6 +31,17 @@ var _ = {};
 * _.typeOf([1,2,3]) -> "array"
 */
 
+_.typeOf = function (value) {
+    if(Array.isArray(value) === true) {
+        return "array";
+    }
+
+    if(value === null) {
+        return "null";
+    }
+
+    return typeof value;
+};
 
 /** _.first
 * Arguments:
@@ -49,7 +60,34 @@ var _ = {};
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
+_.first = function (array, number) {
+    if (number <= 0) {
+        return [];
+    }
+    if (Array.isArray(array) === false){
+        return [];
+    }
+    if (number >= array.length) {
+        return array;
+    }
+    if(typeof number !== "number"){
+        return array[0];
+    }
 
+    var result = [];
+
+    // if(typeof number === "number"){
+    //     result.push(number);
+    //     return result[0];
+    // }
+
+    for (var i = 0; i < number; i++){
+        result.push (array[number]);
+        console.log(result);
+    }
+
+    return result;
+};
 
 /** _.last
 * Arguments:
@@ -69,6 +107,32 @@ var _ = {};
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function (array, number) {
+    if (number <= 0) {
+        return [];
+    }
+    if (Array.isArray(array) === false){
+        return [];
+    }
+    if (number >= array.length) {
+        return array;
+    }
+    if(typeof number !== "number"){
+        return array[[array.length - 1]];
+    }
+
+    var result = [];
+
+    if(typeof number === "number"){
+        result.push(number);
+    }
+
+    for (var i = 0; i < number; i++){
+        result.push(array.length - 1);
+    }
+
+    return result;
+};
 
 /** _.indexOf
 * Arguments:
@@ -86,6 +150,9 @@ var _ = {};
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function (array, value) {
+
+}
 
 /** _.contains
 * Arguments:
@@ -102,6 +169,16 @@ var _ = {};
 *   _.contains([1,"two", 3.14], "three") -> false
 */
 
+_.contains = function (array, value){
+    for (var i = 0; i < array.length; i++){
+        if(array[i] === value){
+            return true;
+        }
+    }
+    if(array[i] !== value){
+        return false;
+    }
+}
 
 /** _.each
 * Arguments:
