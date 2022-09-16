@@ -31,6 +31,7 @@ var _ = {};
 * _.typeOf([1,2,3]) -> "array"
 */
 
+<<<<<<< HEAD
 _.typeOf = function (value) {
     if(Array.isArray(value) === true) {
         return "array";
@@ -42,6 +43,17 @@ _.typeOf = function (value) {
 
     return typeof value;
 };
+=======
+_.typeOf = function (value){
+    if(Array.isArray(value) === true){
+        return "array";
+    }
+    if(value === null){
+        return 'null';
+    }
+    
+}
+>>>>>>> 14db6b897b332492e4622eb400e063c8570a99e2
 
 /** _.first
 * Arguments:
@@ -76,6 +88,7 @@ _.first = function (array, number) {
 
     var result = [];
 
+<<<<<<< HEAD
     // if(typeof number === "number"){
     //     result.push(number);
     //     return result[0];
@@ -88,6 +101,17 @@ _.first = function (array, number) {
 
     return result;
 };
+=======
+_.first = function (arr, num){
+    if(Array.isArray(arr) !== true){
+        return [];
+    }
+
+    if(num !== number){
+        return arr[0];
+    }
+}
+>>>>>>> 14db6b897b332492e4622eb400e063c8570a99e2
 
 /** _.last
 * Arguments:
