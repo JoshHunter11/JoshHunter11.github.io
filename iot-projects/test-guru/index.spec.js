@@ -24,10 +24,10 @@ describe("Test Guru", function () {
     var some_number = 484;
 
     //                 ┌ Change this to what it should be
-    expect(value === '???').to.be.true;
+    expect(value === "hello tests").to.be.true;
     
     //                        ┌ Change this to what it should be
-    expect(some_number === '???').to.be.true;
+    expect(some_number === 484).to.be.true;
   });
 
   it("Functions can access/modify variables in parent scope.", function(){
@@ -39,13 +39,13 @@ describe("Test Guru", function () {
 
     yay();
     
-    expect(outside_the_function === '???').to.be.true;
+    expect(outside_the_function === "can you see me?").to.be.true;
   });
 
   it("Function Parameters become scoped to the function.", function(){
 
     function yay(param){
-      expect(param === '???').to.be.true;
+      expect(param === 'a fine kettle of fish').to.be.true;
     }
 
     yay("a fine kettle of fish");
@@ -54,7 +54,7 @@ describe("Test Guru", function () {
   it("A functions local scope is not available in an outer scope.", function(){
     function yay(){
       var kix = "kid tested mother approved";
-      expect(kix === '???').to.be.true;
+      expect(kix === undefined).to.be.true;
     }
     yay();
     
@@ -68,7 +68,7 @@ describe("Test Guru", function () {
     } else {
       has_kix = "i prefer cheerios";
     }
-    expect(has_kix === '???').to.be.true;
+    expect(has_kix === 'i prefer cheerios').to.be.true;
   });
 
   it("Functions don't have access to eachothers scope", function(){
