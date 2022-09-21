@@ -54,7 +54,7 @@ describe("Test Guru", function () {
   it("A functions local scope is not available in an outer scope.", function(){
     function yay(){
       var kix = "kid tested mother approved";
-      expect(kix === undefined).to.be.true;
+      expect(kix === "kid tested mother approved").to.be.true;
     }
     yay();
     
@@ -81,8 +81,8 @@ describe("Test Guru", function () {
       if(this.from_yay !== undefined){
         in_foo = this.from_yay;
       }
-      expect(in_foo === '???').to.be.true;
-      expect(this.from_yay === '???').to.be.true;
+      expect(in_foo === "i'm in foo").to.be.true;
+      expect(this.from_yay === undefined).to.be.true;
     }
     yay();
     foo();
@@ -95,11 +95,11 @@ describe("Test Guru", function () {
     function yay(){
       var peanuts = "roasted";
 
-      expect(peanuts === '???').to.be.true;
+      expect(peanuts === 'roasted').to.be.true;
     }
     yay();
 
-    expect(peanuts === '???').to.be.true;
+    expect(peanuts === 300).to.be.true;
   });
 
   it("Variables created with var in a function are re-created each time", function(){
@@ -112,11 +112,11 @@ describe("Test Guru", function () {
     }
 
     yay();
-    expect(this.counter === '???').to.be.true;
+    expect(this.counter === undefined).to.be.true;
     yay();
-    expect(this.counter === '???').to.be.true;
+    expect(this.counter === undefined).to.be.true;
     yay();
-    expect(this.counter === '???').to.be.true;
+    expect(this.counter === undefined).to.be.true;
   });
 
   it("Inner scope can access outer scope", function(){
@@ -126,7 +126,7 @@ describe("Test Guru", function () {
       return im_outside + im_inside;
     }
 
-    expect(yay() === '???').to.be.true;
+    expect(yay() === 'alphaomega').to.be.true;
   });
 
   it("Functions retain outer scope references between calls.", function(){
@@ -136,9 +136,9 @@ describe("Test Guru", function () {
     }
 
     yay();
-    expect(im_outside === '???').to.be.true;
+    expect(im_outside === 14).to.be.true;
     yay();
-    expect(im_outside === '???').to.be.true;
+    expect(im_outside === 15).to.be.true;
   });
 
   it("We can do goofy stuff with outer scope", function(){
@@ -151,11 +151,11 @@ describe("Test Guru", function () {
     }
 
     yay();
-    expect(name === '???').to.be.true;
+    expect(name === 'greg').to.be.true;
     yay();
-    expect(name === '???').to.be.true;
+    expect(name === 'greggreg').to.be.true;
     yay();
-    expect(name === '???').to.be.true;
+    expect(name === 'greggreggreg').to.be.true;
 
   });
 
@@ -170,7 +170,7 @@ describe("Test Guru", function () {
     }
     something(yay);
     
-    expect(im_outter === '???').to.be.true;
+    expect(im_outter === 40).to.be.true;
   });
 
   it("We can get crazy with returns.", function(){
@@ -181,6 +181,6 @@ describe("Test Guru", function () {
       return "hello, this" + whatever();
     }
 
-    expect(foo(yay) === '???').to.be.true;
+    expect(foo(yay) === 'hello, this is dog').to.be.true;
   });
 });
