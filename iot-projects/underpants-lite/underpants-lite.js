@@ -215,13 +215,15 @@ _.contains = function (array, value) {
 _.each = function(coll, func){
     if(typeof coll === "array"){
         for(var i = 0; i < coll.length; i++){
-            func(i, indexOf(i), coll);
+            func(coll.get(i), coll.indexOf(i, 0), coll);
         }
     }
 
-    if(typeof coll === "object"){
-        func()
-    }
+    // if(typeof coll === "object"){
+    //     for(key in coll){
+    //       func()
+    //     }
+    // }
 }
 
 
