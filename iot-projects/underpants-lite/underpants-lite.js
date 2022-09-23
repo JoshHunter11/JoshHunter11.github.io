@@ -69,22 +69,19 @@ _.first = function (array, number) {
   if (number >= array.length) {
     return array;
   }
-  if (typeof number !== "number") {
+  if (_.typeOf(number) !== "number") {
     return array[0];
   }
 
   for (var i = 0; i < array.length; i++) {
-
     var result = [];
 
-    if (typeof number === "number" && array[i] === number) {
-
+    if (_.typeOf(number) === "number" && array[i] === number) {
       result.push(number);
-      
     }
 
-    if(result[0] === number){
-        return result[0];
+    if (result[0] === number) {
+      return result[0];
     }
   }
 };
@@ -212,21 +209,17 @@ _.contains = function (array, value) {
  *      -> should log "a" "b" "c" to the console
  */
 
-_.each = function(coll, func){
-    if(typeof coll === "array"){
-        for(var i = 0; i < coll.length; i++){
-            func(coll.get(i), coll.indexOf(i, 0), coll);
-        }
+_.each = function (coll, func) {
+  if (_.typeOf(coll) === "array") {
+    for (var i = 0; i < coll.length; i++) {
+      func(coll[i], i, coll);
     }
-
-    // if(typeof coll === "object"){
-    //     for(key in coll){
-    //       func()
-    //     }
-    // }
-}
-
-
+  } else if (_.typeOf(coll) === "object") {
+    for (var key in coll) {
+      func(coll[key], key, coll);
+    }
+  }
+};
 
 /** _.filter
  * Arguments:
@@ -245,6 +238,23 @@ _.each = function(coll, func){
  *   use _.each in your implementation
  */
 
+_.filter = function (arr, func) {
+  
+  var newArr = [];
+
+  for (var i = 0; i < arr.length; i++) {
+
+    func(arr[i], i, arr);
+
+    if (func === true) {
+
+      newArr.push(arr[i]);
+      
+    }
+  }
+  return (newArr);
+};
+
 /** _.map
  * Arguments:
  *   1) A collection
@@ -261,6 +271,27 @@ _.each = function(coll, func){
  * Examples:
  *   _.map([1,2,3,4], function(e){ return e * 2; }) -> [2,4,6,8]
  */
+
+_.map = function(coll, func){
+
+  var newArr = [];
+
+  if(_.typeOf(coll) === "array"){
+    for(var i = 0; i < coll.length; i++){
+      func(coll[i], i, coll);
+      newArr.push(func(coll[i], i));
+      return newArr;
+    }
+  }
+  else if (_.typeOf(coll) === "object") {
+    for (var key in coll) {
+      func(coll[key], key, coll);
+      newArr.push(func(coll[i], i));
+      return newArr;
+    }
+  }
+
+}
 
 /** _.reject
  * Arguments:
