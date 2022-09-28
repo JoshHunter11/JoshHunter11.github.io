@@ -220,7 +220,8 @@ _.each = function(coll, func){
     }
 
     if(typeof coll === "object"){
-        func()
+      for(const property in coll)
+        func(i, coll[i], coll);
     }
 }
 
