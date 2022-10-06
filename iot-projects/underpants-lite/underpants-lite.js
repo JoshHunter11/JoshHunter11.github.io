@@ -39,6 +39,10 @@ _.typeOf = function (value) {
     return "null";
   }
 
+  if (typeof value === "object") {
+    return "object";
+  }
+
   return typeof value;
 };
 
@@ -74,17 +78,14 @@ _.first = function (array, number) {
   }
 
   for (var i = 0; i < array.length; i++) {
-
     var result = [];
 
     if (typeof number === "number" && array[i] === number) {
-
       result.push(number);
-      
     }
 
-    if(result[0] === number){
-        return result[0];
+    if (result[0] === number) {
+      return result[0];
     }
   }
 };
@@ -212,20 +213,19 @@ _.contains = function (array, value) {
  *      -> should log "a" "b" "c" to the console
  */
 
-_.each = function(coll, func){
-    if(typeof coll === "array"){
-        for(var i = 0; i < coll.length; i++){
-            func(i, indexOf(i), coll);
-        }
+_.each = function (coll, func) {
+  if (_.typeOf(coll) === "array") {
+    for (var i = 0; i < coll.length; i++) {
+      func(i, coll.indexOf(i), coll);
     }
+  }
 
-    if(typeof coll === "object"){
-      for(const property in coll)
-        func(i, coll[i], coll);
+  if (_.typeOf(coll) === "object") {
+    for (var property in coll) {
+      func(i, coll[i], coll);
     }
-}
-
-
+  }
+};
 
 /** _.filter
  * Arguments:
@@ -350,6 +350,10 @@ _.each = function(coll, func){
  * Examples:
  *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
  */
+
+_.pluck = function(arr, prop){
+  
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
