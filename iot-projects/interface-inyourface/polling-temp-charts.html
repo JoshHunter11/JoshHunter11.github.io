@@ -143,12 +143,10 @@
           }
 
           // TODO 3: Regular Polling
-
+          var result;
           function doPoll() {
             $.getJSON(
-              "https://f3dc5044859d.ngrok.io/pi/sensors/dht/temperature",
-              callback(result)
-            );
+              "https://e2f4-64-237-85-162.ngrok.io/pi/sensors/dht/temperature",callback(result));
           }
 
           function callback(result) {
@@ -163,7 +161,7 @@
           // Create a new WebSocket connection here
 
           var socket = new WebSocket(
-            "ws://f3dc5044859d.ngrok.io/pi/sensors/dht/temperature"
+            "ws://e2f4-64-237-85-162  .ngrok.io/pi/sensors/dht/temperature"
           );
 
           socket.onmessage = function (event) {
