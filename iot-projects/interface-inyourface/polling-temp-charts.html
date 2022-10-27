@@ -130,7 +130,7 @@
           function updateWSRecords(value) {
             // Update the WebSocket polling records
             if (value > wsHighest) {
-              regHighest = value;
+              wsHighest = value;
               $("#ws-highest").text("Highest recorded value is " + value);
               //$('#ws-chart-container').append($("<p>").attr("id", "ws-highest").text("Highest recorded value is " + value));
             }

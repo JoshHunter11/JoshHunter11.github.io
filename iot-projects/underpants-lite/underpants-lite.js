@@ -248,17 +248,12 @@ _.filter = function (arr, func) {
   var newArr = [];
 
   for (var i = 0; i < arr.length; i++) {
-  
-
-    if (  func(arr[i], i, arr)) {
-      
+    if (func(arr[i], i, arr)) {
       newArr.push(arr[i]);
- 
     }
   }
 
   return newArr;
-
 };
 
 /** _.map
@@ -279,23 +274,17 @@ _.filter = function (arr, func) {
  */
 
 _.map = function (coll, func) {
-
   var newArr = [];
 
-  if(_.typeOf(coll) === 'array'){
-    for (var i = 0; i < coll.length; i++){
-
-      if (  func(coll[i], i, coll)) {
-        
+  if (_.typeOf(coll) === "array") {
+    for (var i = 0; i < coll.length; i++) {
+      if (func(coll[i], i, coll)) {
         newArr.push(coll[i]);
-   
       }
     }
-  }
-
-  else if(_.typeOf(coll) === 'object'){
+  } else if (_.typeOf(coll) === "object") {
     for (var property in coll) {
-      if(func(coll[property], property, coll)){
+      if (func(coll[property], property, coll)) {
         newArr.push(coll[property]);
       }
     }
