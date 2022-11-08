@@ -216,13 +216,13 @@ _.contains = function (array, value) {
 _.each = function (coll, func) {
   if (_.typeOf(coll) === "array") {
     for (var i = 0; i < coll.length; i++) {
-      func(i, coll.indexOf(i), coll);
+      func(coll[i], i, coll);
     }
   }
 
   if (_.typeOf(coll) === "object") {
     for (var property in coll) {
-      func(i, coll[i], coll);
+      func(coll[property], property, coll);
     }
   }
 };
@@ -244,6 +244,18 @@ _.each = function (coll, func) {
  *   use _.each in your implementation
  */
 
+_.filter = function (arr, func) {
+  var newArr = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    if (func(arr[i], i, arr)) {
+      newArr.push(arr[i]);
+    }
+  }
+
+  return newArr;
+};
+
 /** _.map
  * Arguments:
  *   1) A collection
@@ -260,6 +272,25 @@ _.each = function (coll, func) {
  * Examples:
  *   _.map([1,2,3,4], function(e){ return e * 2; }) -> [2,4,6,8]
  */
+
+_.map = function (coll, func) {
+  var newArr = [];
+
+  if (_.typeOf(coll) === "array") {
+    for (var i = 0; i < coll.length; i++) {
+      if (func(coll[i], i, coll)) {
+        newArr.push(coll[i]);
+      }
+    }
+  } else if (_.typeOf(coll) === "object") {
+    for (var property in coll) {
+      if (func(coll[property], property, coll)) {
+        newArr.push(coll[property]);
+      }
+    }
+  }
+  return newArr;
+};
 
 /** _.reject
  * Arguments:
@@ -351,9 +382,7 @@ _.each = function (coll, func) {
  *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
  */
 
-_.pluck = function(arr, prop){
-  
-}
+_.pluck = function (arr, prop) {};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

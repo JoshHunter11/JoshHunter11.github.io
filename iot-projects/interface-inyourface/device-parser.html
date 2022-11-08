@@ -82,7 +82,7 @@
 
                 // TODO 7: Generate the URL to the sensors of the device
 
-                var sensorsPath = (data.url + data.resources.sensors.url. data.url + data.resources.sensors.url);
+                var sensorsPath = (data.url + data.resources.sensors.url);
 
                 $.ajax({
                 url: sensorsPath,
@@ -95,13 +95,13 @@
 
                     $('#sensors').html(Object.keys(data).length + " sensors found!");
 
-                    for (var key in data){
-                        var html = "<li><a href=\"" + sensorsPath + 'sensor' + "\">" + data['sensor'].name + "</a></li>";
+                    for (var sensor in data){
+                        var html = "<li><a href=\"" + sensorsPath + sensor + "\">" + data[sensor].name + "</a></li>";
                         sensorsList = (sensorsList + html);
-                        console.log(sensorsList);
+                        $('#sensors-list').html(sensorsList);
                     }
 
-                    $('#sensors-list').html(sensorsList);
+              
                     
                 },
 
