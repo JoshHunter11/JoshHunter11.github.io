@@ -278,15 +278,11 @@ _.map = function (coll, func) {
 
   if (_.typeOf(coll) === "array") {
     for (var i = 0; i < coll.length; i++) {
-      if (func(coll[i], i, coll)) {
-        newArr.push(coll[i]);
-      }
+      newArr.push(func(coll[i], i, coll));
     }
   } else if (_.typeOf(coll) === "object") {
     for (var property in coll) {
-      if (func(coll[property], property, coll)) {
-        newArr.push(coll[property]);
-      }
+      newArr.push(func(coll[property], property, coll));
     }
   }
   return newArr;
@@ -308,6 +304,17 @@ _.map = function (coll, func) {
  *   _.reject([1,2,3,4,5], function(e){ return e%2 === 0}; ) -> [1,3,5]
  */
 
+_.reject = function (arr, func) {
+  var newArr = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    if (func(arr[i], i, arr) === false) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+};
+
 /** _.partition
 * Arguments:
 *   1) An array
@@ -326,6 +333,17 @@ _.map = function (coll, func) {
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+
+_.partition = function (arr, func) {
+  var newArr = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    _.filter(func(arr[i], key, arr));
+    _.reject(func(arr[i], key, arr));
+  }
+
+  return newArr;
+};
 
 /** _.every
  * Arguments:
