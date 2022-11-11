@@ -337,11 +337,13 @@ _.reject = function (arr, func) {
 _.partition = function (arr, func) {
   var newArr = [];
 
-  for (var element in arr) {
+  for (var i = 0; i < arr.length; i++) {
 
-    _.filter(arr, func(element, key, arr));
-    _.reject(arr, func(arr[i], key, arr));
-
+    var truthy = _.filter(arr, func(arr[i], i, arr));
+    var falsy = _.reject(arr, func(arr[i], i, arr));
+    
+    newArr.push[truthy];
+    newArr.push[falsy];
   }
 
   return newArr;
