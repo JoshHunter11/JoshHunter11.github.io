@@ -339,11 +339,11 @@ _.partition = function (arr, func) {
 
   for (var i = 0; i < arr.length; i++) {
 
-    var truthy = _.filter(arr, func(arr[i], i, arr));
-    var falsy = _.reject(arr, func(arr[i], i, arr));
+    var truthy = _.filter(arr, func);
+    var falsy = _.reject(arr, func);
     
-    newArr.push[truthy];
-    newArr.push[falsy];
+    newArr.push(truthy);
+    newArr.push(falsy);
   }
 
   return newArr;
