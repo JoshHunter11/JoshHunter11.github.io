@@ -362,12 +362,35 @@ _.partition = function (arr, func) {
  *   _.every([1,2,3], function(e){ return e % 2 === 0}; ) -> false
  */
 
+// coll = [ 1, 2, 3, 4];
+// func = function (val){
+//   return val % 2 === 0;
+// }
+
+// var testArray = _.map(coll, func);
+// // testArray will be [false, true, false, true]
+
+
+
+
 _.every = function (coll, func) {
+
+  if (!func){
+
+  }
+
   var testArray = _.map(coll, func);
 
-  var truthy = _.filter(testArray, func);
-  var falsy = _.reject(testArray, func);
+  var identity = function(val){
+    if(val === true){
+      return true;
+    }
+  }
+  
+  var truthy = _.filter(testArray, identity);
+  var falsy = _.reject(testArray, identity);
 
+  console.log({testArray, truthy, falsy})
   if(falsy.length > 0){
     return false;
   }
