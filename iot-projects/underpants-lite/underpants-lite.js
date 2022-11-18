@@ -79,14 +79,8 @@ _.first = function (array, number) {
 
   for (var i = 0; i < array.length; i++) {
     var result = [];
-
-    if (typeof number === "number" && array[i] === number) {
-      result.push(number);
-    }
-
-    if (result[0] === number) {
-      return result[0];
-    }
+    result.push(number);
+    return result[0];
   }
 };
 // _.first = function (arr, num){
@@ -337,14 +331,11 @@ _.reject = function (arr, func) {
 _.partition = function (arr, func) {
   var newArr = [];
 
-  for (var i = 0; i < arr.length; i++) {
+  var truthy = _.filter(arr, func);
+  var falsy = _.reject(arr, func);
 
-    var truthy = _.filter(arr, func);
-    var falsy = _.reject(arr, func);
-    
-    newArr.push(truthy);
-    newArr.push(falsy);
-  }
+  newArr.push(truthy);
+  newArr.push(falsy);
 
   return newArr;
 };
@@ -370,6 +361,28 @@ _.partition = function (arr, func) {
  *   _.every([2,4,6], function(e){ return e % 2 === 0}; ) -> true
  *   _.every([1,2,3], function(e){ return e % 2 === 0}; ) -> false
  */
+
+_.every = function (coll, func) {
+  var testArray = _.map(coll, func);
+
+  var truthy = _.filter(testArray, func);
+  var falsy = _.reject(testArray, func);
+
+  if(falsy.length > 0){
+    return false;
+  }
+
+  if(truthy.length === testArray.length){
+    return true;
+  }
+
+  // for (var i = 0; i < testArray.length; i++) {
+  //   if (i === false) {
+  //     return false;
+  //   }
+  // }
+  // return true;
+};
 
 /** _.some
  * Arguments:
