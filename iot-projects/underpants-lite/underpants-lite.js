@@ -376,9 +376,8 @@ _.partition = function (arr, func) {
 _.every = function (coll, func) {
 
   if (!func){
-
+    return true;
   }
-
   var testArray = _.map(coll, func);
 
   var identity = function(val){
