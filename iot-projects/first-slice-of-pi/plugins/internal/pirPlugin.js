@@ -9,7 +9,7 @@ function connectHardware(){
 
     sensor.watch(function(err, val){
 
-        if(err){
+        if(!err){
             device.value = !!value;
         }
 
