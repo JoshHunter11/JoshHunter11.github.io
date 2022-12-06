@@ -13,6 +13,7 @@ function connectHardware() {
     read: function () {
       var sensorVals = sensorDriver.read;
       device.humidity.value = parseFloat(sensorVals.humidity);
+      console.log(sensorVals);
     },
   };
 
