@@ -34,3 +34,6 @@ function start(params){
 function stop(){
     clearInterval(interval);
 }
+
+exports.start = start;
+exports.stop = stop;
