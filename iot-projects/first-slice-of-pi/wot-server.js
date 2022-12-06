@@ -1,8 +1,8 @@
 var pirPlugin = require("./plugins/internal/pirPlugin");
 pirPlugin.start({});
 
-var dhtPlugin = require('./plugins/internal/dhtPlugin');
-dhtPlugin.start({'frequency': 2000});
+var dhtPlugin = require("./plugins/internal/dhtPlugin");
+dhtPlugin.start({ frequency: 2000 });
 
 const httpServer = require("./servers/http"),
   resources = require("./resources/model");
