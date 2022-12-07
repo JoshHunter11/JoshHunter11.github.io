@@ -11,7 +11,7 @@ function connectHardware() {
       sensorDriver.initialize(device.model, device.gpio);
     },
     read: function () {
-      var sensorVals = sensorDriver.read;
+      var sensorVals = sensorDriver.read();
       device.humidity.value = parseFloat(sensorVals.humidity);
       console.log(sensorVals);
     },
@@ -28,7 +28,7 @@ function connectHardware() {
 
 function start(params) {
   localParams = params ? params : localParams;
-  connectHardware;
+  connectHardware();
 }
 
 function stop() {
