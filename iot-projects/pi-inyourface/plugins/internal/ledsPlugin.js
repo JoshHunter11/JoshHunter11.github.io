@@ -32,11 +32,20 @@ function stop() {
 exports.switchOnOff = {
   1: function (value) {
     // turn LED 1 on or off based on value
-	if(actuator1.value === true){
-		
-	}
+    if (actuator1.value === true) {
+      actuator1.write(1);
+    }
+    if (actuator1.value === false) {
+      actuator1.write(0);
+    }
   },
   2: function (value) {
     // turn LED 2 on or off based on value
+    if (actuator2.value === true) {
+      actuator2.write(1);
+    }
+    if (actuator2.value === false) {
+      actuator2.write(0);
+    }
   },
 };
