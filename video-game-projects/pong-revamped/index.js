@@ -1,4 +1,4 @@
-(function(window, createjs, opspark, _) {
+(function (window, createjs, opspark, _) {
 
   // Variable declarations for libraries and the game engine
   const
@@ -24,7 +24,7 @@
   // Variable declarations for the paddles and the ball which are drawn using createJS (see bower_components/opspark-draw/draw.js)
   const
     paddlePlayer = createPaddle(),
-    paddleCPU = createPaddle({ x: canvas.width - 20, y: canvas.height - 100 }),
+    paddleCPU = createPaddle({ x: canvas.width - 60, y: canvas.height - 100 }),
     ball = draw.circle(20, '#CCC');
 
   // set initial properties for the paddles 
@@ -92,26 +92,41 @@
 
     // TODO 1: bounce the ball off the top
 
-    if(ball.y <= canvas.height){
+    if (ball.y <= canvas.height - canvas.height) {
       ball.yVelocity = -ball.yVelocity;
     }
 
     // TODO 2: bounce the ball off the bottom
 
-    if(ball.y >= canvas.height){
+    if (ball.y >= canvas.height) {
       ball.yVelocity = -ball.yVelocity;
     }
 
     // TODO 3: bounce the ball off each of the paddles
 
-    if(ball.x <= paddle.width){
-      ball.x = -ball.x
+    if (ball.x <= canvas.width / 2) {
+      if (ball.x - ball.width <= paddlePlayer.x && ball.y > paddlePlayer.y && ball.y < paddlePlayer.y + paddlePlayer.height) {
+        ball.xVelocity = -ball.xVelocity * 1.1;
+      }
+
+      if (ball.x - ball.width + paddlePlayer.width < paddlePlayer.x - 40) {
+        ball.x = canvas.width / 2
+      }
     }
 
+    else if (ball.x >= canvas.width / 2) {
+      if (ball.x + paddleCPU.width >= paddleCPU.x /*&& ball.y >= paddleCPU.y && ball.y <= paddleCPU.y - paddleCPU.y*/) {
+        ball.xVelocity = -ball.xVelocity * 1.1;
+      }
+
+      if (ball.x + paddleCPU.width > paddleCPU.x + 20) {
+        ball.x = canvas.width / 2
+      }
+    }
   }
 
   // helper function that wraps the draw.rect function for easy paddle making
-  function createPaddle({ width = 20, height = 100, x = 0, y = 0, color = '#CCC' } = {}) {
+  function createPaddle({ width = 20, height = 100, x = 20, y = 0, color = '#CCC' } = {}) {
     const paddle = draw.rect(width, height, color);
     paddle.x = x;
     paddle.y = y;

@@ -10,20 +10,24 @@ function runProgram() {
 
   $("#chooseMode").text('Pick the Gamemode At the Bottom');
 
+  //registers when any of the buttons get clicked
   $("#onePlayer").on('click', OnePlayer);
   $("#twoPlayer").on('click', TwoPlayer);
   $("#resetButton").on('click', reset);
 
+  //reloads the page
   function reset(){
     location.reload();
   }
 
+  //turns on the one player gamemode
   function OnePlayer() {
     console.log(13);
     playGame("onePlayer");
 
   }
 
+  //turns on the two player gamemode
   function TwoPlayer() {
     console.log(19);
     playGame("twoPlayer");
@@ -32,6 +36,7 @@ function runProgram() {
 
   function playGame(mode){
 
+    //these three lines hide the buttons except for the reset button
     $('#chooseMode').hide();
     $('#onePlayer').hide();
     $('#twoPlayer').hide();
@@ -195,6 +200,7 @@ function runProgram() {
     ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
     
+    //the code behind the one player mode AI - if the ball is on the right side of the screen, the center of the right paddle will move either up or down towards the ball's y position depending on where it is on the board.
     function moveBot(){
       if(mode === "onePlayer"){
 
@@ -242,6 +248,7 @@ function runProgram() {
       $(document).off();
     }
 
+    //gets the ball moving at a random speed once the game starts
     function startBall() {
       ball.x = 385;
       ball.y = 385;
@@ -249,6 +256,7 @@ function runProgram() {
       ball.speedY = (Math.random() * 3 + 1.5) * (Math.random() > 0.5 ? -1 : 1);
     }
 
+    //repositions and redraws the object passed in every frame
     function moveObject(obj) {
       obj.x += obj.speedX;
       obj.y += obj.speedY;
@@ -258,6 +266,7 @@ function runProgram() {
 
     }
 
+    //checks if the the object passed into the funcion collides with any side of the board and bounces it off.
     function wallCollision(obj) {
 
       //moveObject(ball);
@@ -290,6 +299,7 @@ function runProgram() {
 
     }
 
+    //checks if the object one collides with object two and bounces object one off of object two (the ball and left/right paddles)
     function doCollide(obj1, obj2) {
       if (obj1.x + obj1.width >= obj2.x && obj1.x <= obj2.x + obj2.width && obj1.y + obj1.height >= obj2.y && obj1.y <= obj2.y + obj2.height) {
         obj2.speedX = -obj2.speedX;
@@ -301,6 +311,7 @@ function runProgram() {
       }
     }
 
+    //ends the game if either player's score reaches 7 and puts out a string of text acknowledging the winner
     function end() {
       if ($("#rightScore").text() === '7') {
         $("#winnerText").text("Blue player wins!");
