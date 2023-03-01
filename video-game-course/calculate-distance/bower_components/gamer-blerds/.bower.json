@@ -25,6 +25,7 @@
     "commit": "1bf1adafee0d4c57029f684269347e5178140a0e"
   },
   "_source": "https://github.com/JoshHunter11/gamer-blerds.git",
-  "_target": "*",
-  "_originalSource": "https://github.com/JoshHunter11/gamer-blerds.git"
+  "_target": "^0.0.3",
+  "_originalSource": "https://github.com/JoshHunter11/gamer-blerds.git",
+  "_direct": true
 }
