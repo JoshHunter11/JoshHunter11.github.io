@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="img/fav-icon.png">
     <style type="text/css">
         body {
-            background-image: url("/img/gray-background.png");
+            background-image: url("/img/space-background.webp");
             color: rgb(158, 26, 26);
             padding: 10px;
             font-family: 'Times New Roman', Times, serif;
@@ -30,7 +30,7 @@
 
         /* navigation menu */
         nav {
-            background: rgb(209, 72, 13);
+            background: black;
             margin: 0 auto;
             margin-bottom: 20px;
             display: flex;
@@ -41,7 +41,7 @@
         h1 {
             display: flex;
             align-items: center;
-            color: rgb(0, 0, 0);
+            color: white;
             flex: 1;
             margin: 0;
             text-decoration: underline;
@@ -63,7 +63,7 @@
 
         /* main container area beneath menu */
         main {
-            background: rgb(245, 238, 219);
+            background: black;
             display: flex;
             padding: 10px;
             border-radius: 10px;
@@ -76,18 +76,20 @@
 
         /* portfolio styles */
         .content h1 {
-            color: black;
+            color: white;
         }
 
         #portfolio,
-        #advanced-portfolio {
+        #advanced-portfolio,
+        #video-game-portfolio {
             list-style-type: none;
             padding-left: 0;
             padding: 8px;
         }
 
         #portfolio li,
-        #advanced-portfolio li {
+        #advanced-portfolio li,
+        #video-game-portfolio li {
             background: #fff;
             padding: 10px;
             border-radius: 10px;
@@ -95,12 +97,14 @@
         }
 
         #portfolio li:hover,
-        #advanced-portfolio li:hover {
+        #advanced-portfolio li:hover,
+        #video-game-portfolio li:hover {
             background: #eee;
         }
 
         #portfolio a,
-        #advanced-portfolio a {
+        #advanced-portfolio a,
+        #video-game-portfolio a {
             text-decoration: none;
             color: #454545;
         }
@@ -139,6 +143,13 @@
                     <li><a href="asd-projects/image-filtering/">Image Filtering: Filtering Images</a></li>
                     <li><a href="asd-projects/sorting-exercise/">Sorting Exercise: Exercise on sorting images</a></li>
                     <li><a href="asd-projects/pong/">Pong : A remake of the classic game 'Pong'</a></li>
+                </ul>
+                <h1>Video Game Portfolio</h1>
+                <ul id="video-game-portfolio">
+                    <li><a href="video-game-course/calculate-distance/">Calculate Distance : Practice on calculating the distance in pixels between two points</a></li>
+                    <li><a href="video-game-course/calculate-rotation/">Calculate Rotation : </a></li>
+                    <li><a href="video-game-course/collision/">Collision : </a></li>
+                    <li><a href="video-game-course/velocity-displacement/">Velocity Displacement : </a></li>
                 </ul>
             </div>
         </main>

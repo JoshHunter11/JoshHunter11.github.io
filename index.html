@@ -6,8 +6,8 @@
     <link rel="icon" type="image/x-icon" href="img/fav-icon.png">
     <style>
         body {
-            background-image: url("/img/gray-background.png");
-            color: rgb(158, 26, 26);
+            background-image: url("/img/space-background.webp");
+            color: white;
             padding: 10px;
             font-family: 'Times New Roman', Times, serif;
             height: 100%;
@@ -25,7 +25,7 @@
 
         /* navigation menu */
         nav {
-            background: rgb(209, 72, 13);
+            background: rgb(000, 00, 00);
             margin: 0 auto;
             margin-bottom: 20px;
             display: flex;
@@ -36,7 +36,7 @@
         h1 {
             display: flex;
             align-items: center;
-            color: black;
+            color: white;
             flex: 1;
             margin: 0;
             text-decoration: underline;
@@ -58,20 +58,25 @@
 
         /* main container area beneath menu */
         main {
-            background: rgb(245, 238, 219);
+            background: black;
             display: flex;
             padding: 10px;
             border-radius: 10px;
         }
 
         .sidebar {
-            margin-right: 25px;
+            margin-left: 25px;
             padding: 10px;
+         
         }
 
         .sidebar-img {
-            width: 200px;
+            text-align: justify;
+            width: 722px;
             border: 4px silver ridge;
+            margin-top: 25px;
+            margin-left: 25px;
+            margin-right: 25px;
         }
 
         .content {
@@ -86,8 +91,14 @@
         h2 {
             text-decoration: underline;
         }
+
         h3 {
-            
+            text-decoration: underline;
+        }
+
+        .sidebar {
+            display:flex;
+            justify-content:center;
         }
     </style>
 </head>
@@ -111,27 +122,20 @@
 
         <main>
             <!-- sidebar/image div -->
-            <div class="sidebar">
+            <div class="sidebar-content" style="text-align: center;">
 
                 <img class="sidebar-img"
                     src="https://pbs.twimg.com/profile_images/1369342272404402179/Hu5THK4J_400x400.jpg">
-
-
-            </div>
-
-            <!-- content section -->
-            <div class="content">
-
                 <h2>Joshua Hunter</h2>
-                <p>Student at Lusher Charter High School</p>
+                <p>Student at The Willow School</p>
 
                 <!-- Interests section -->
                 <div id="interests">
                     <h3>Interests</h3>
-                    <ul>
-                        <li>Friends</li>
-                        <li>Video games</li>
-                        <li>Ceramics</li>
+                    
+                        <p>Friends</p>
+                        <p>Video games</p>
+                        <p>Ceramics</p>
                 </div>
             </div>
 
