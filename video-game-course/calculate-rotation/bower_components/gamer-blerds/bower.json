@@ -16,16 +16,5 @@
   ],
   "dependencies": {
     "lodash": "^4.17.21"
-  },
-  "version": "0.0.5",
-  "_release": "0.0.5",
-  "_resolution": {
-    "type": "version",
-    "tag": "v0.0.5",
-    "commit": "507b8bdbb3d0e7b0d84ae7b437025e7f1e9c0ed0"
-  },
-  "_source": "https://github.com/JoshHunter11/gamer-blerds.git",
-  "_target": "^0.0.5",
-  "_originalSource": "https://github.com/JoshHunter11/gamer-blerds.git",
-  "_direct": true
+  }
 }

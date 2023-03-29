@@ -1,7 +1,7 @@
 {
-  "name": "calc-rot",
+  "name": "init-createjs",
   "version": "0.0.1",
-  "description": "Calculating rotation",
+  "description": "Initializing CreateJS",
   "main": "index.html",
   "authors": [
     "jfraboni"
@@ -17,10 +17,6 @@
     "tests"
   ],
   "dependencies": {
-    "EaselJS": "^1.0.2",
-    "opspark-draw": "^1.0.0",
-    "racket": "^1.0.2",
-    "V6": "^0.0.2",
-    "gamer-blerds": "https://github.com/JoshHunter11/gamer-blerds.git#^0.0.5"
+    "EaselJS": "^1.0.2"
   }
 }

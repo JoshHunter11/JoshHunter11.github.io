@@ -19,6 +19,6 @@
   "dependencies": {
     "EaselJS": "^1.0.2",
     "V6": "^0.0.2",
-    "gamer-blerds": "https://github.com/JoshHunter11/gamer-blerds.git#^0.0.3"
+    "gamer-blerds": "https://github.com/JoshHunter11/gamer-blerds.git#^0.0.5"
   }
 }
