@@ -22,6 +22,8 @@
          * update the position of the body
          */
         
+        gamerBlerds.phyz.updatePosition(body);
+
       });
     }
   };

@@ -37,6 +37,8 @@
       
       // TODO 6: Merge the ship with your game libs makeBody()
       
+      console.log(gamerBlerds);
+
       Object.assign(ship, gamerBlerds.phyz.makeBody('ship'));
       
       // give the ship a default propulsion //
