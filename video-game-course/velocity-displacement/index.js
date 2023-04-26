@@ -79,8 +79,14 @@
   // listen for user releasing keys //
   document.onkeyup = function(event) {
     // TODO 13: How do we stop the application of forces?
-    
+    ship.rotationalVelocity = 0;
+    ship.propulsion = 0;
   };
+
+  while(ship.propulsion !== 0){
+    ship.propulsion *= 0.1;
+    console.log(slowed);
+  }
   
   function reboundCircularAssetInArea(body, area) {
     const
@@ -100,7 +106,7 @@
       // TODO 10: Code the reaction to hitting the left side
       
       body.x = left + radius;
-      body.velocityX += 1;
+      body.velocityX *= -1;
 
     }
 
@@ -109,8 +115,10 @@
       // we've struck the top of the area //
       body.y = top + radius;
       body.velocityY *= -1;
-    } else if ( /* TODO 11: Check if body's hit bottom */ false ) {
+    } else if (body.y + radius > bottom) {
       // we've struck the bottom of the area //
+      body.y = bottom - radius;
+      body.velocityY *= -1;
       // TODO 12: Code the reaction to hitting the bottom
       
     }
