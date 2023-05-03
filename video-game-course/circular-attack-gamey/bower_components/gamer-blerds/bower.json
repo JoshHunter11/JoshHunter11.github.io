@@ -1,0 +1,20 @@
+{
+  "name": "gamer-blerds",
+  "homepage": "https://github.com/JoshHunter11/gamer-blerds",
+  "authors": [
+    "JoshHunter11 <weirdstuff1105@gmail.com>"
+  ],
+  "description": "this is a video game library to help develop different games",
+  "main": "index.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
