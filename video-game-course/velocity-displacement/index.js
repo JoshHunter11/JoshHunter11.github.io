@@ -114,6 +114,8 @@
       body.velocityY *= -1;
     } else if (body.y +radius > bottom) {
       // we've struck the bottom of the area //
+      body.y = bottom - radius;
+      body.velocityY *= -1;
       // TODO 12: Code the reaction to hitting the bottom
       body.y = bottom - radius;
       body.velocityY *= -1;

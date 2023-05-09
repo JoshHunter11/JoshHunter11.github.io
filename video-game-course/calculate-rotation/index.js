@@ -1,5 +1,5 @@
 // TODO 4: add a param for your game lib last //
-(function(window, opspark) {
+(function(window, createjs, opspark, gamerBlerds) {
   console.log('index.js initialized!');
 
   const
@@ -10,17 +10,21 @@
     textfield = assets.makeTextfield('Degrees: ');
   
   stage.addChild(textfield);
+  console.log({stage});
+  
 
   // try a different hex color if you want //
-  const ship = assets.makeShip('#4286f4');
+  const ship = assets.makeShip('#4286f3');
+  console.log(ship);
   
   
   // TODO 5: Center the ship on the stage //
-  
+  ship.y = canvas.height / 2;
+  ship.x = canvas.offsetWidth / 2;
 
   // TODO 6: Add the ship to the stage //
   
-
+  stage.children.push(ship);
   
   function update(event) {
     /*
@@ -35,17 +39,23 @@
      * these values such that they're packed into a point?
      */
     
+    var mouseCenter = {
+      x: stage.mouseX,
+      y: stage.mouseY
+    };
+
+    const degrees = gamerBlerds.getAngleDegrees(ship, mouseCenter);
     
     // TODO 8: Set the ship's rotation property to the degrees //
     
-    
+    ship.rotation = degrees;
     
     /*
      * TODO 9: Uncomment the line below to update the textfield  
      * with the current angle degrees. Degrees will be a value 
      * between π and -π, or, 180 and -180.
      */
-    // assets.updateText(textfield, `Degrees: ${degrees.toFixed(3)}°`, canvas);
+    assets.updateText(textfield, `Degrees: ${degrees.toFixed(3)}°`, canvas);
   }
 
   engine
@@ -53,4 +63,4 @@
     .activateTick();
 
 // TODO 3: pass your game lib last with, window.my-game-lib //
-}(window, window.opspark));
+}(window, window.createjs, window.opspark, window.gamerBlerds));
