@@ -48,5 +48,9 @@
     },
     centerOnStage,
   };
+
+  window.opspark.assets = {
+    
+  }
 // TODO 5.a: Replace *my-game-lib* with the name of your game lib
 }(window, window.opspark.draw, window.gamerBlerds));
